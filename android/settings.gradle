@@ -1,0 +1,3 @@
+rootProject.name = 'VonCount'
+
+include ':app'
