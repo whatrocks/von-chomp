@@ -3,7 +3,8 @@ Counter app for iOS and Android written in Typescript and React Native
 
 ## Current dev setup
 
-Run the React Native simulator
+### iOS
+Run the iOS simulator
 ```bash
 react-native run-ios
 ```
@@ -13,4 +14,17 @@ Run gulp to watch for changes in the `/src` folder
 gulp dev
 ```
 
-Don't forget to enable Hot Reloading in the Device Simulator!
+Don't forget to enable Hot Reloading in the iOS Device Simulator!
+
+### Android
+Open the Android Virtual Device manager
+```bash
+android avd
+```
+
+Select one, and click `Start`.
+
+Run the app in your virtual device:
+```bash
+react-native run-android
+```
