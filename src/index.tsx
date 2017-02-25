@@ -10,19 +10,36 @@ interface Props {
 }
 
 interface State {
-
+  count: number
 }
 
 export default class App extends Component<Props, State> {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Von Count - the best counting app ever
+        <Text style={styles.text} onPress={this.increment.bind(this)}>
+          {this.state.count}
         </Text>
       </View>
     )
   }
+
+  increment(e) {
+    e.preventDefault();
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+
 }
 
 const styles = StyleSheet.create({
