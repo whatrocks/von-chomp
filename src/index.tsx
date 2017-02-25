@@ -18,7 +18,7 @@ export default class App extends Component<Props, State> {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          Welcome to Von Count!!!!
+          Von Count - the best counting app ever
         </Text>
       </View>
     )
