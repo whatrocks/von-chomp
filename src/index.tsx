@@ -4,15 +4,18 @@ import {
   Text,
   View,
   ListView,
-  TouchableHighlight
+  TouchableHighlight,
+  Animated,
+  Easing
 } from 'react-native';
 
 interface Props {
-
+  
 }
 
 interface State {
-  count: number
+  count?: number,
+  animatedValue?: any
 }
 
 export default class App extends Component<Props, State> {
@@ -20,13 +23,24 @@ export default class App extends Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
+      animatedValue: new Animated.Value(100)
     };
   }
 
+  componentDidMount() {
+    Animated.timing(this.state.animatedValue, {
+      toValue: 200,
+      duration: 1000,
+      easing: Easing.bounce
+    }).start();
+  }
+
   render() {
+    const animatedStyle = { height: this.state.animatedValue };
     return (
       <View style={styles.container}>
+        <Animated.View style={[styles.box, animatedStyle]}/>
         <Text style={styles.counter}>
           {this.state.count}
         </Text>
@@ -94,6 +108,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  } as React.ViewStyle,
+
+  box: {
+    backgroundColor: '#333',
+    width: 100,
+    height: 100
   } as React.ViewStyle
 
 });
