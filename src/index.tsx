@@ -17,11 +17,15 @@ interface Props {
 interface State {
   count?: number,
   increment?: number,
-  pan?: any
+  animatedEye?: any,
+  animatedPupil?: any
 }
 
 const { width, height } = Dimensions.get("window");
-const vonCountSize = 100;
+const eyeHeight = 100;
+const pupilHeight = 50;
+const easing = Easing.bounce;
+const speed = 250;
 
 
 export default class App extends Component<Props, State> {
@@ -31,16 +35,23 @@ export default class App extends Component<Props, State> {
     this.state = {
       count: 0,
       increment: 1,
-      pan: new Animated.ValueXY()
+      animatedEye: new Animated.Value(eyeHeight),
+      animatedPupil: new Animated.Value(pupilHeight)
     };
   }
 
   render() {
-    const animatedStyle = { transform: this.state.pan.getTranslateTransform() };
+    const animatedEye = { height: this.state.animatedEye }
+    const animatedPupil = { height: this.state.animatedPupil  }
     return (
       <View style={styles.container}>
-        <View style={styles.row}>
-          <Animated.View style={[styles.vonCount, animatedStyle]}></Animated.View>
+        <View style={styles.eyeRow}>
+          <Animated.View style={[styles.eye, animatedEye]}>
+            <Animated.View style={[styles.pupil, animatedPupil]} />
+          </Animated.View>
+          <Animated.View style={[styles.eye, animatedEye]}>
+            <Animated.View style={[styles.pupil, animatedPupil]} />
+          </Animated.View>
         </View>
         <Text style={styles.counter}>
           {this.state.count}
@@ -63,16 +74,42 @@ export default class App extends Component<Props, State> {
     )
   }
 
+  blink() {
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(this.state.animatedEye, {
+          toValue: eyeHeight / 5,
+          duration: speed,
+          easing: easing
+        }),
+        Animated.timing(this.state.animatedPupil, {
+          toValue: pupilHeight / 5,
+          duration: speed,
+          easing: easing
+        })
+      ]),
+      Animated.parallel([
+        Animated.timing(this.state.animatedEye, {
+          toValue: eyeHeight,
+          duration: speed,
+          easing: easing
+        }),
+        Animated.timing(this.state.animatedPupil, {
+          toValue: pupilHeight,
+          duration: speed,
+          easing: easing
+        })
+      ])
+    ]).start();
+    
+  }
+
   increment(e) {
     e.preventDefault();
     this.setState({
       count: this.state.count + this.state.increment,
     });
-    Animated.spring(this.state.pan, {
-        tension: 2,
-        friction: 3, 
-        toValue: {x: this.state.count + 50, y: 0}
-    }).start();
+    this.blink();
   }
 
   decrement(e) {
@@ -80,11 +117,6 @@ export default class App extends Component<Props, State> {
     this.setState({
       count: this.state.count - this.state.increment
     });
-    Animated.spring(this.state.pan, {
-        tension: 2,
-        friction: 3, 
-        toValue: {x: this.state.count - 50, y: 0}
-    }).start();
   }
 
 
@@ -94,26 +126,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: '#EFEFEF'
+    backgroundColor: '#7f7fff',
   } as React.ViewStyle,
 
-  row: {
+  eyeRow: {
     flexDirection: 'row',
     justifyContent: 'center'
   } as React.ViewStyle,
 
+  eye: {
+    backgroundColor: '#414c52',
+    margin: 50,
+    height: eyeHeight,
+    width: eyeHeight / 2,
+    borderRadius: eyeHeight / 2
+  } as React.ViewStyle,
+
+  pupil: {
+    backgroundColor: '#efefef',
+    marginLeft: 10,
+    marginTop: 8,
+    height: pupilHeight,
+    width: pupilHeight / 2,
+    borderRadius: 25
+  } as React.ViewStyle,
+
   counter: {
     fontSize: 50,
+    color: '#efefef',
     textAlign: 'center',
     margin: 10
   } as React.TextStyle,
-
-  vonCount: {
-    height: vonCountSize,
-    width: vonCountSize,
-    borderRadius: vonCountSize / 2,
-    backgroundColor: '#7f7fff',
-  } as React.ViewStyle,
 
   button: {
     justifyContent: 'center',
