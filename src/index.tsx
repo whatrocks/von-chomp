@@ -80,14 +80,16 @@ export default class App extends Component<Props, State> {
         </Text>
         <View style={styles.buttonRow}>
           <TouchableHighlight 
-            style={styles.button}
+            style={styles.buttonDown}
             onPress={this.decrement.bind(this)}
+            underlayColor={'#7f7fff'}
           >
             <Text style={styles.buttonText}>-</Text>
           </TouchableHighlight>
           <TouchableHighlight
-            style={styles.button}
+            style={styles.buttonUp}
             onPress={this.increment.bind(this)}
+            underlayColor={'#7f7fff'}
           >
             <Text style={styles.buttonText}>+</Text>
           </TouchableHighlight>
@@ -136,7 +138,7 @@ export default class App extends Component<Props, State> {
       Animated.timing(this.state.animatedMouth, {
           toValue: 0,
           duration: speed,
-          easing: Easing.bounce
+          easing: Easing.cubic
        }),
        Animated.timing(this.state.animatedMouth, {
           toValue: mouthHeight,
@@ -163,9 +165,11 @@ export default class App extends Component<Props, State> {
 
   decrement(e) {
     e.preventDefault();
-    this.setState({
-      count: this.state.count - this.state.increment
-    });
+    if ( this.state.count > 0 ) {
+      this.setState({
+        count: this.state.count - this.state.increment
+      });
+    }
   }
 
 
@@ -260,21 +264,35 @@ const styles = StyleSheet.create({
     margin: 10
   } as React.TextStyle,
 
-  button: {
+  buttonDown: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: 50,
-    backgroundColor: '#00d3a3',
+    width: width / 3,
+    height: 80,
+    backgroundColor: '#f5d736',
+    borderColor: '#f5d736',
+    borderWidth: 5,
     marginBottom: 30,
-    borderRadius: 3
+    borderRadius: 5,
+  } as React.ViewStyle,
+
+  buttonUp: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: width / 3,
+    height: 80,
+    backgroundColor: '#00d3a3',
+    borderColor: '#00d3a3',
+    borderWidth: 5,
+    marginBottom: 30,
+    borderRadius: 5,
   } as React.ViewStyle,
 
   buttonText: {
     fontSize: 40,
     color: '#efefef',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
   } as React.TextStyle,
 
   buttonRow: {
