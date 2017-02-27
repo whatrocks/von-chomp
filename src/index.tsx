@@ -47,8 +47,8 @@ export default class App extends Component<Props, State> {
   }
 
   render() {
-    const animatedEye = { opacity: this.state.animatedEye }
-    const animatedPupil = { opacity: this.state.animatedPupil  }
+    const animatedEye = { height: this.state.animatedEye }
+    const animatedPupil = { opacity: this.state.animatedPupil, height: this.state.animatedPupil  }
     const animatedMouth = { height: this.state.animatedMouth }
     const animatedTongue = { height: this.state.animatedTongue }
     return (
@@ -102,27 +102,27 @@ export default class App extends Component<Props, State> {
   blink() {
     Animated.sequence([
       Animated.parallel([
-        Animated.timing(this.state.animatedEye, {
-          toValue: eyeHeight / 3,
+        Animated.timing(this.state.animatedPupil, {
+          toValue: 0,
           duration: speed,
           easing: Easing.cubic
         }),
-        Animated.timing(this.state.animatedPupil, {
-          toValue: pupilHeight / 3,
+        Animated.timing(this.state.animatedEye, {
+          toValue: 20,
           duration: speed,
           easing: Easing.cubic
-        })
+        }),
       ]),
       Animated.parallel([
         Animated.timing(this.state.animatedEye, {
           toValue: eyeHeight,
           duration: speed,
-          easing: Easing.cubic
+          easing: Easing.bounce
         }),
         Animated.timing(this.state.animatedPupil, {
           toValue: pupilHeight,
           duration: speed,
-          easing: Easing.cubic
+          easing: Easing.bounce
         })
       ])
     ]).start();
@@ -159,7 +159,6 @@ export default class App extends Component<Props, State> {
     this.setState({
       count: this.state.count + this.state.increment,
     });
-    this.blink();
     this.chomp();
   }
 
@@ -170,6 +169,7 @@ export default class App extends Component<Props, State> {
         count: this.state.count - this.state.increment
       });
     }
+    this.blink();
   }
 
 
@@ -258,7 +258,8 @@ const styles = StyleSheet.create({
   } as React.ViewStyle,
 
   counter: {
-    fontSize: 50,
+    fontFamily: 'RobotoMono-Regular',
+    fontSize: 60,
     color: '#efefef',
     textAlign: 'center',
     margin: 10
@@ -290,6 +291,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     fontSize: 40,
+    fontFamily: 'RobotoMono-Bold',
     color: '#efefef',
     fontWeight: 'bold',
     textAlign: 'center',

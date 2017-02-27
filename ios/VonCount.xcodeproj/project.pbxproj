@@ -36,6 +36,8 @@
 		2DCD954D1E0B4F2C00145EB5 /* VonCountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* VonCountTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		E2C65A4A1E63ED6E002BDF2E /* robotomono-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C65A491E63ED6E002BDF2E /* robotomono-bold.ttf */; };
+		E2C65A651E63ED80002BDF2E /* robotomono-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C65A641E63ED80002BDF2E /* robotomono-regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,6 +257,8 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		E2C65A491E63ED6E002BDF2E /* robotomono-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "robotomono-bold.ttf"; path = "../../../Downloads/robotomono-bold.ttf"; sourceTree = "<group>"; };
+		E2C65A641E63ED80002BDF2E /* robotomono-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "robotomono-regular.ttf"; path = "../../../Downloads/robotomono-regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +467,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E2C65A641E63ED80002BDF2E /* robotomono-regular.ttf */,
+				E2C65A491E63ED6E002BDF2E /* robotomono-bold.ttf */,
 				13B07FAE1A68108700A75B9A /* VonCount */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* VonCountTests */,
@@ -843,7 +849,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E2C65A4A1E63ED6E002BDF2E /* robotomono-bold.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				E2C65A651E63ED80002BDF2E /* robotomono-regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
