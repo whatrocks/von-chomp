@@ -18,15 +18,19 @@ interface State {
   count?: number,
   increment?: number,
   animatedEye?: any,
-  animatedPupil?: any
+  animatedPupil?: any,
+  animatedMouth?: any,
+  animatedTongue?: any
 }
 
 const { width, height } = Dimensions.get("window");
+
 const eyeHeight = 100;
 const pupilHeight = 50;
-const easing = Easing.bounce;
-const speed = 250;
+const mouthHeight = height * 2 / 5;
+const tongueHeight = 50;
 
+const speed = 500;
 
 export default class App extends Component<Props, State> {
 
@@ -36,24 +40,42 @@ export default class App extends Component<Props, State> {
       count: 0,
       increment: 1,
       animatedEye: new Animated.Value(eyeHeight),
-      animatedPupil: new Animated.Value(pupilHeight)
+      animatedPupil: new Animated.Value(pupilHeight),
+      animatedMouth: new Animated.Value(mouthHeight),
+      animatedTongue: new Animated.Value(tongueHeight)
     };
   }
 
   render() {
-    const animatedEye = { height: this.state.animatedEye }
-    const animatedPupil = { height: this.state.animatedPupil  }
+    const animatedEye = { opacity: this.state.animatedEye }
+    const animatedPupil = { opacity: this.state.animatedPupil  }
+    const animatedMouth = { height: this.state.animatedMouth }
+    const animatedTongue = { height: this.state.animatedTongue }
     return (
       <View style={styles.container}>
-        <View style={styles.eyeRow}>
-          <Animated.View style={[styles.eye, animatedEye]}>
-            <Animated.View style={[styles.pupil, animatedPupil]} />
-          </Animated.View>
-          <Animated.View style={[styles.eye, animatedEye]}>
-            <Animated.View style={[styles.pupil, animatedPupil]} />
-          </Animated.View>
+        <View style={styles.face}>
+          <View style={styles.eyeRow}>
+            <Animated.View style={[styles.eye, animatedEye]}>
+              <Animated.View style={[styles.pupil, animatedPupil]} />
+            </Animated.View>
+            <Animated.View style={[styles.eye, animatedEye]}>
+              <Animated.View style={[styles.pupil, animatedPupil]} />
+            </Animated.View>
+          </View>
+          <View style={styles.mouthRow}>
+            <Animated.View style={[styles.mouth, animatedMouth]}>
+              <View style={styles.fangRow}>
+                <View style={styles.fang}></View>
+                <View style={styles.fang}></View>
+              </View>
+              <View style={styles.tongueRow}>
+                <Animated.View style={[styles.tongue, animatedTongue]} />
+              </View>
+            </Animated.View>
+          </View>
         </View>
-        <Text style={styles.counter}>
+        <View>
+          <Text style={styles.counter}>
           {this.state.count}
         </Text>
         <View style={styles.buttonRow}>
@@ -70,6 +92,7 @@ export default class App extends Component<Props, State> {
             <Text style={styles.buttonText}>+</Text>
           </TouchableHighlight>
         </View>
+        </View>
       </View>
     )
   }
@@ -78,28 +101,53 @@ export default class App extends Component<Props, State> {
     Animated.sequence([
       Animated.parallel([
         Animated.timing(this.state.animatedEye, {
-          toValue: eyeHeight / 5,
+          toValue: eyeHeight / 3,
           duration: speed,
-          easing: easing
+          easing: Easing.cubic
         }),
         Animated.timing(this.state.animatedPupil, {
-          toValue: pupilHeight / 5,
+          toValue: pupilHeight / 3,
           duration: speed,
-          easing: easing
+          easing: Easing.cubic
         })
       ]),
       Animated.parallel([
         Animated.timing(this.state.animatedEye, {
           toValue: eyeHeight,
           duration: speed,
-          easing: easing
+          easing: Easing.cubic
         }),
         Animated.timing(this.state.animatedPupil, {
           toValue: pupilHeight,
           duration: speed,
-          easing: easing
+          easing: Easing.cubic
         })
       ])
+    ]).start();
+  }
+
+  chomp() {
+    Animated.sequence([
+      Animated.timing(this.state.animatedTongue, {
+          toValue: 0,
+          duration: speed / 10,
+          easing: Easing.linear
+        }),
+      Animated.timing(this.state.animatedMouth, {
+          toValue: 0,
+          duration: speed,
+          easing: Easing.bounce
+       }),
+       Animated.timing(this.state.animatedMouth, {
+          toValue: mouthHeight,
+          duration: speed,
+          easing: Easing.bounce
+        }),
+        Animated.timing(this.state.animatedTongue, {
+          toValue: tongueHeight,
+          duration: speed,
+          easing: Easing.bounce
+        })
     ]).start();
     
   }
@@ -110,6 +158,7 @@ export default class App extends Component<Props, State> {
       count: this.state.count + this.state.increment,
     });
     this.blink();
+    this.chomp();
   }
 
   decrement(e) {
@@ -125,8 +174,13 @@ export default class App extends Component<Props, State> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: '#7f7fff',
+    justifyContent: 'space-between',
+    backgroundColor: '#7f7fff'
+  } as React.ViewStyle,
+
+  face: {
+    flexDirection: 'column',
+    justifyContent: 'center'
   } as React.ViewStyle,
 
   eyeRow: {
@@ -149,6 +203,54 @@ const styles = StyleSheet.create({
     height: pupilHeight,
     width: pupilHeight / 2,
     borderRadius: 25
+  } as React.ViewStyle,
+
+  mouth: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: mouthHeight,
+    width: width * 2/3,
+    backgroundColor: '#414c52',
+    borderBottomLeftRadius: mouthHeight / 3,
+    borderTopLeftRadius: mouthHeight / 3,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 1,
+  } as React.ViewStyle,
+
+  fangRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  } as React.ViewStyle,
+
+  fang: {
+    height: 0,
+    width: 0,
+    marginLeft: 20,
+    borderLeftWidth: 30,
+    borderLeftColor: 'transparent',
+    borderRightWidth: 30,
+    borderRightColor: 'transparent',
+    borderTopWidth: 60,
+    borderTopColor: '#7f7fff',
+  } as React.ViewStyle,
+
+  tongue: {
+    height: tongueHeight,
+    width: 75,
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    backgroundColor: '#ff4646',
+    marginLeft: 40
+  } as React.ViewStyle,
+
+  tongueRow: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  } as React.ViewStyle,
+
+  mouthRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   } as React.ViewStyle,
 
   counter: {
