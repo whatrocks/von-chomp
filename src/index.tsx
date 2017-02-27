@@ -9,6 +9,7 @@ import {
   Easing,
   Dimensions
 } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 interface Props {
   
@@ -52,50 +53,80 @@ export default class App extends Component<Props, State> {
     const animatedMouth = { height: this.state.animatedMouth }
     const animatedTongue = { height: this.state.animatedTongue }
     return (
-      <View style={styles.container}>
-        <View style={styles.face}>
-          <View style={styles.eyeRow}>
-            <Animated.View style={[styles.eye, animatedEye]}>
-              <Animated.View style={[styles.pupil, animatedPupil]} />
-            </Animated.View>
-            <Animated.View style={[styles.eye, animatedEye]}>
-              <Animated.View style={[styles.pupil, animatedPupil]} />
-            </Animated.View>
+      <Swiper
+        showsButtons={false}
+        showsPagination={false}
+        index={1}
+        loop={false}
+      >
+        <View style={styles.credits}>
+          <Text style={[styles.creditText, styles.creditTextHighlightGreen]}>
+            Von Count
+          </Text>
+          <Text style={styles.creditText}>
+            is a counting app
+          </Text>
+          <View style={styles.creditTextRow}>
+            <Text style={styles.creditText}>
+              by
+            </Text>
+            <Text style={[styles.creditText, styles.creditTextHighlightRed]}>
+              @whatrocks
+            </Text>
           </View>
-          <View style={styles.mouthRow}>
-            <Animated.View style={[styles.mouth, animatedMouth]}>
-              <View style={styles.fangRow}>
-                <View style={styles.fang}></View>
-                <View style={styles.fang}></View>
-              </View>
-              <View style={styles.tongueRow}>
-                <Animated.View style={[styles.tongue, animatedTongue]} />
-              </View>
-            </Animated.View>
-          </View>
-        </View>
-        <View>
-          <Text style={styles.counter}>
-          {this.state.count}
-        </Text>
-        <View style={styles.buttonRow}>
           <TouchableHighlight 
-            style={styles.buttonDown}
-            onPress={this.decrement.bind(this)}
+            style={styles.buttonLarge}
+            onPress={this.reset.bind(this)}
             underlayColor={'#7f7fff'}
           >
-            <Text style={styles.buttonText}>-</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            style={styles.buttonUp}
-            onPress={this.increment.bind(this)}
-            underlayColor={'#7f7fff'}
-          >
-            <Text style={styles.buttonText}>+</Text>
+            <Text style={styles.buttonText}>Reset</Text>
           </TouchableHighlight>
         </View>
+        <View style={styles.container}>
+          <View style={styles.face}>
+            <View style={styles.eyeRow}>
+              <Animated.View style={[styles.eye, animatedEye]}>
+                <Animated.View style={[styles.pupil, animatedPupil]} />
+              </Animated.View>
+              <Animated.View style={[styles.eye, animatedEye]}>
+                <Animated.View style={[styles.pupil, animatedPupil]} />
+              </Animated.View>
+            </View>
+            <View style={styles.mouthRow}>
+              <Animated.View style={[styles.mouth, animatedMouth]}>
+                <View style={styles.fangRow}>
+                  <View style={styles.fang}></View>
+                  <View style={styles.fang}></View>
+                </View>
+                <View style={styles.tongueRow}>
+                  <Animated.View style={[styles.tongue, animatedTongue]} />
+                </View>
+              </Animated.View>
+            </View>
+          </View>
+          <View>
+            <Text style={styles.counter}>
+            {this.state.count}
+          </Text>
+          <View style={styles.buttonRow}>
+            <TouchableHighlight 
+              style={styles.buttonDown}
+              onPress={this.decrement.bind(this)}
+              underlayColor={'#7f7fff'}
+            >
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.buttonUp}
+              onPress={this.increment.bind(this)}
+              underlayColor={'#7f7fff'}
+            >
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableHighlight>
+          </View>
+          </View>
         </View>
-      </View>
+      </Swiper>
     )
   }
 
@@ -154,6 +185,13 @@ export default class App extends Component<Props, State> {
     
   }
 
+  reset(e) {
+    e.preventDefault();
+    this.setState({
+      count: 0
+    });
+  }
+
   increment(e) {
     e.preventDefault();
     this.setState({
@@ -176,6 +214,36 @@ export default class App extends Component<Props, State> {
 }
 
 const styles = StyleSheet.create({
+  credits: {
+    flex: 1,
+    backgroundColor: '#4c4c99',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    paddingTop: 30
+  } as React.ViewStyle,
+  
+  creditText: {
+    fontSize: 30,
+    fontFamily: 'RobotoMono-Bold',
+    padding: 10,
+    color: '#efefef',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  } as React.TextStyle,
+
+  creditTextRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  } as React.ViewStyle,
+
+  creditTextHighlightGreen: {
+    backgroundColor: '#00d3a3',
+  } as React.TextStyle,
+
+  creditTextHighlightRed: {
+    backgroundColor: '#ff4646',
+  } as React.TextStyle,
+
   container: {
     flex: 1,
     justifyContent: 'space-between',
@@ -288,6 +356,23 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     borderRadius: 5,
   } as React.ViewStyle,
+
+  buttonLarge: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: width / 2,
+    height: 80,
+    backgroundColor: '#f5d736',
+    borderColor: '#f5d736',
+    borderWidth: 5,
+  } as React.ViewStyle,
+
+  buttonTextLarge: {
+    fontSize: 30,
+    fontFamily: 'RobotoMono-Bold',
+    color: '#efefef',
+    textAlign: 'center',
+  } as React.TextStyle,
 
   buttonText: {
     fontSize: 40,

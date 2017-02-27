@@ -2,7 +2,14 @@
 # yarn lockfile v1
 
 
-"@types/react-native@^0.37.11":
+"@types/react-native-swiper@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native-swiper/-/react-native-swiper-1.5.2.tgz#9043f92cf4f6be2ab0406d948d2eee09dfd6ca78"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+
+"@types/react-native@*", "@types/react-native@^0.37.11":
   version "0.37.11"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.37.11.tgz#7089342307af90fd06e54296d292edffba31b91c"
   dependencies:
@@ -3700,6 +3707,10 @@ react-clone-referenced-element@^1.0.1:
 react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
+
+react-native-swiper@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.4.tgz#a85535b5374ef8d605a7a720e447ac46816ac448"
 
 react-native@0.41.2:
   version "0.41.2"
