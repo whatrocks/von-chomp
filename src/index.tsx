@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   Animated,
   Easing,
-  Dimensions
+  Dimensions,
+  Linking
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 
@@ -64,7 +65,11 @@ export default class App extends Component<Props, State> {
           <Text style={styles.creditText}>is a counting app</Text>
           <View style={styles.creditTextRow}>
             <Text style={styles.creditText}>by</Text>
-            <Text style={[styles.creditText, styles.creditTextHighlightRed]}>@whatrocks</Text>
+            <TouchableHighlight
+              onPress={()=> Linking.openURL("http://www.whatrocks.org")}
+            >
+              <Text style={[styles.creditText, styles.creditTextHighlightRed]}>@whatrocks</Text>
+            </TouchableHighlight>
           </View>
           <Text style={styles.creditText}>You can always</Text>
           <View style={styles.creditTextRow}>
