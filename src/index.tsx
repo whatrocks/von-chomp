@@ -60,27 +60,32 @@ export default class App extends Component<Props, State> {
         loop={false}
       >
         <View style={styles.credits}>
-          <Text style={[styles.creditText, styles.creditTextHighlightGreen]}>
-            Von Count
-          </Text>
-          <Text style={styles.creditText}>
-            is a counting app
-          </Text>
+          <Text style={[styles.creditText, styles.creditTextHighlightGreen]}>Von Count</Text>
+          <Text style={styles.creditText}>is a counting app</Text>
           <View style={styles.creditTextRow}>
-            <Text style={styles.creditText}>
-              by
-            </Text>
-            <Text style={[styles.creditText, styles.creditTextHighlightRed]}>
-              @whatrocks
-            </Text>
+            <Text style={styles.creditText}>by</Text>
+            <Text style={[styles.creditText, styles.creditTextHighlightRed]}>@whatrocks</Text>
           </View>
-          <TouchableHighlight 
-            style={styles.buttonLarge}
-            onPress={this.reset.bind(this)}
-            underlayColor={'#7f7fff'}
-          >
-            <Text style={styles.buttonText}>Reset</Text>
-          </TouchableHighlight>
+          <Text style={styles.creditText}>You can always</Text>
+          <View style={styles.creditTextRow}>
+            <Text style={styles.creditText}>tap</Text>
+            <TouchableHighlight
+              onPress={this.reset.bind(this)}
+            >
+              <Text style={[styles.creditText, styles.creditTextHighlightYellow]}>reset</Text>
+            </TouchableHighlight>
+            <Text style={styles.creditText}>or</Text>
+          </View>
+          <Text style={styles.creditText}>change the scale</Text>
+          <View style={styles.creditTextRow}>
+            <Text style={styles.creditText}>to</Text>
+            <TouchableHighlight
+              onPress={this.scale.bind(this)}
+            >
+              <Text style={[styles.creditText, styles.creditTextHighlightPurple]}>{this.state.increment}</Text>
+            </TouchableHighlight>
+            <Text style={styles.creditText}>{ this.state.increment === 1 ? `thing` : `things`}</Text>
+          </View>
         </View>
         <View style={styles.container}>
           <View style={styles.face}>
@@ -188,7 +193,15 @@ export default class App extends Component<Props, State> {
   reset(e) {
     e.preventDefault();
     this.setState({
-      count: 0
+      count: 0,
+      increment: 1
+    });
+  }
+
+  scale(e) {
+    e.preventDefault();
+    this.setState({
+      increment: this.state.increment + 1
     });
   }
 
@@ -202,24 +215,21 @@ export default class App extends Component<Props, State> {
 
   decrement(e) {
     e.preventDefault();
-    if ( this.state.count > 0 ) {
-      this.setState({
-        count: this.state.count - this.state.increment
-      });
-    }
+    this.setState({
+      count: this.state.count - this.state.increment
+    });
     this.blink();
   }
-
 
 }
 
 const styles = StyleSheet.create({
   credits: {
     flex: 1,
+    justifyContent: 'space-around',
     backgroundColor: '#4c4c99',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingTop: 30
   } as React.ViewStyle,
   
   creditText: {
@@ -242,6 +252,14 @@ const styles = StyleSheet.create({
 
   creditTextHighlightRed: {
     backgroundColor: '#ff4646',
+  } as React.TextStyle,
+
+  creditTextHighlightYellow: {
+    backgroundColor: '#f5d736',
+  } as React.TextStyle,
+
+  creditTextHighlightPurple: {
+    backgroundColor: '#7f7fff',
   } as React.TextStyle,
 
   container: {
@@ -361,7 +379,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: width / 2,
-    height: 80,
     backgroundColor: '#f5d736',
     borderColor: '#f5d736',
     borderWidth: 5,
@@ -372,6 +389,7 @@ const styles = StyleSheet.create({
     fontFamily: 'RobotoMono-Bold',
     color: '#efefef',
     textAlign: 'center',
+    fontWeight: 'bold',
   } as React.TextStyle,
 
   buttonText: {
@@ -386,11 +404,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   } as React.ViewStyle,
-
-  box: {
-    backgroundColor: '#333',
-    width: 50,
-    height: 50
-  } as React.ViewStyle
 
 });
