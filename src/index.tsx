@@ -122,14 +122,14 @@ export default class App extends Component<Props, State> {
             <TouchableHighlight 
               style={styles.buttonDown}
               onPress={this.decrement.bind(this)}
-              underlayColor={'#7f7fff'}
+              underlayColor={'#dcc130'}
             >
               <Text style={styles.buttonText}>-</Text>
             </TouchableHighlight>
             <TouchableHighlight
               style={styles.buttonUp}
               onPress={this.increment.bind(this)}
-              underlayColor={'#7f7fff'}
+              underlayColor={'#00bd92'}
             >
               <Text style={styles.buttonText}>+</Text>
             </TouchableHighlight>
@@ -362,8 +362,6 @@ const styles = StyleSheet.create({
     width: width / 3,
     height: 80,
     backgroundColor: '#f5d736',
-    borderColor: '#f5d736',
-    borderWidth: 5,
     marginBottom: 30,
     borderRadius: 5,
   } as React.ViewStyle,
@@ -374,8 +372,6 @@ const styles = StyleSheet.create({
     width: width / 3,
     height: 80,
     backgroundColor: '#00d3a3',
-    borderColor: '#00d3a3',
-    borderWidth: 5,
     marginBottom: 30,
     borderRadius: 5,
   } as React.ViewStyle,
