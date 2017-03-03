@@ -1,5 +1,7 @@
 # von-count
-Counter app for iOS and Android written in Typescript and React Native
+Counter app for iOS and Android written in Typescript and React Native.
+
+<img src="./vc.gif">
 
 ## Dev setup
 
