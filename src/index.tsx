@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   } as React.TextStyle,
 
   creditTextHighlightYellow: {
-    backgroundColor: '#f5d736',
+    backgroundColor: '#ecc90c',
   } as React.TextStyle,
 
   creditTextHighlightPurple: {
@@ -361,7 +361,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: width / 3,
     height: 80,
-    backgroundColor: '#f5d736',
+    backgroundColor: '#ecc90c',
     marginBottom: 30,
     borderRadius: 5,
   } as React.ViewStyle,
@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
   } as React.TextStyle,
 
   buttonText: {
-    fontSize: 40,
+    fontSize: 65,
     fontFamily: 'RobotoMono-Bold',
     color: '#efefef',
     fontWeight: 'bold',
