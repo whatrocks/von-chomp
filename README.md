@@ -1,7 +1,7 @@
 # von-count
 Counter app for iOS and Android written in Typescript and React Native.
 
-<img src="./vc.gif">
+<img src="./vc.gif" height="662" width="370">
 
 ## Dev setup
 
