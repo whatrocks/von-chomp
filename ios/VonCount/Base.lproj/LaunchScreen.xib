@@ -8,35 +8,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="robotomono-bold.ttf">
-            <string>RobotoMono-Bold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Von Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4A-bx-W5p">
-                    <rect key="frame" x="178" y="220" width="124" height="40"/>
-                    <color key="backgroundColor" red="0.49688979983329773" green="0.49952319264411926" blue="0.96871316432952881" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="124" id="UuY-SK-vo9"/>
-                        <constraint firstAttribute="height" constant="40" id="m5d-eN-KiB"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="18"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="highlightedColor" red="1" green="0.074633647034154538" blue="0.93465059076965817" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                </label>
-            </subviews>
-            <color key="backgroundColor" red="0.29967442154884338" green="0.29995587468147278" blue="0.58049857616424561" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-            <constraints>
-                <constraint firstItem="N4A-bx-W5p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="f3J-we-OeN"/>
-                <constraint firstItem="N4A-bx-W5p" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="voR-G6-rqo"/>
-            </constraints>
+            <color key="backgroundColor" red="0.49688979983329773" green="0.49952319264411926" blue="0.96871316432952881" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
