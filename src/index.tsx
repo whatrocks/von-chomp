@@ -177,20 +177,20 @@ export default class App extends Component<Props, State> {
           easing: Easing.linear
         }),
       Animated.timing(this.state.animatedMouth, {
-          toValue: 100,
+          toValue: 0,
           duration: speed,
           easing: Easing.cubic
        }),
-      //  Animated.timing(this.state.animatedMouth, {
-      //     toValue: mouthHeight,
-      //     duration: speed,
-      //     easing: Easing.bounce
-      //   }),
-      //   Animated.timing(this.state.animatedTongue, {
-      //     toValue: tongueHeight,
-      //     duration: speed,
-      //     easing: Easing.bounce
-      //   })
+       Animated.timing(this.state.animatedMouth, {
+          toValue: mouthHeight,
+          duration: speed,
+          easing: Easing.bounce
+        }),
+        Animated.timing(this.state.animatedTongue, {
+          toValue: tongueHeight,
+          duration: speed,
+          easing: Easing.bounce
+        })
     ]).start();
     
   }
