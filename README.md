@@ -33,3 +33,7 @@ react-native run-android
 ```
 
 To reload, type `RR` from within the device
+
+## Submitting to the App Store
+
+Docs from [Apple](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/UploadingYourApptoiTunesConnect/UploadingYourApptoiTunesConnect.html#//apple_ref/doc/uid/TP40012582-CH36)

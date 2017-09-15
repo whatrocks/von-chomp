@@ -1020,7 +1020,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.whatrocks.vonchomp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.whatrocks.voncount;
 				PRODUCT_NAME = VonChomp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1041,7 +1041,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.whatrocks.vonchomp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.whatrocks.voncount;
 				PRODUCT_NAME = VonChomp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

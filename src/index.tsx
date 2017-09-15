@@ -67,14 +67,9 @@ export default class App extends Component<Props, State> {
           <Text style={styles.creditText}>is a counting app</Text>
           <View style={styles.creditTextRow}>
             <Text style={styles.creditText}>by</Text>
-            <TouchableHighlight
-              onPress={() =>
-                Linking.openURL("https://www.charlieharrington.com")}
-            >
-              <Text style={[styles.creditText, styles.creditTextHighlightRed]}>
-                @whatrocks
-              </Text>
-            </TouchableHighlight>
+            <Text style={[styles.creditText, styles.creditTextHighlightRed]}>
+              @whatrocks
+            </Text>
           </View>
           <Text style={styles.creditText}>You can always</Text>
           <View style={styles.creditTextRow}>
