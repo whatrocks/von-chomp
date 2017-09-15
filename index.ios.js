@@ -1,6 +1,6 @@
-'use strict'
+"use strict";
 
-import { AppRegistry } from 'react-native'
-import App from './build'
+import { AppRegistry } from "react-native";
+import App from "./build";
 
-AppRegistry.registerComponent('VonCount', () => App)
+AppRegistry.registerComponent("VonChomp", () => App);

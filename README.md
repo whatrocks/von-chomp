@@ -1,4 +1,4 @@
-# von-count
+# von-chomp
 Counter app for iOS and Android written in Typescript and React Native.
 
 <img src="./assets/vc.gif" height="662" width="370">
