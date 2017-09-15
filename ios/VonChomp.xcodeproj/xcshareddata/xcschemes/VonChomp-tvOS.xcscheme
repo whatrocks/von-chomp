@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "VonCount-tvOS.app"
-               BlueprintName = "VonCount-tvOS"
-               ReferencedContainer = "container:VonCount.xcodeproj">
+               BuildableName = "VonChomp-tvOS.app"
+               BlueprintName = "VonChomp-tvOS"
+               ReferencedContainer = "container:VonChomp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "VonCount-tvOSTests.xctest"
-               BlueprintName = "VonCount-tvOSTests"
-               ReferencedContainer = "container:VonCount.xcodeproj">
+               BuildableName = "VonChomp-tvOSTests.xctest"
+               BlueprintName = "VonChomp-tvOSTests"
+               ReferencedContainer = "container:VonChomp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "VonCount-tvOSTests.xctest"
-               BlueprintName = "VonCount-tvOSTests"
-               ReferencedContainer = "container:VonCount.xcodeproj">
+               BuildableName = "VonChomp-tvOSTests.xctest"
+               BlueprintName = "VonChomp-tvOSTests"
+               ReferencedContainer = "container:VonChomp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "VonCount-tvOS.app"
-            BlueprintName = "VonCount-tvOS"
-            ReferencedContainer = "container:VonCount.xcodeproj">
+            BuildableName = "VonChomp-tvOS.app"
+            BlueprintName = "VonChomp-tvOS"
+            ReferencedContainer = "container:VonChomp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "VonCount-tvOS.app"
-            BlueprintName = "VonCount-tvOS"
-            ReferencedContainer = "container:VonCount.xcodeproj">
+            BuildableName = "VonChomp-tvOS.app"
+            BlueprintName = "VonChomp-tvOS"
+            ReferencedContainer = "container:VonChomp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "VonCount-tvOS.app"
-            BlueprintName = "VonCount-tvOS"
-            ReferencedContainer = "container:VonCount.xcodeproj">
+            BuildableName = "VonChomp-tvOS.app"
+            BlueprintName = "VonChomp-tvOS"
+            ReferencedContainer = "container:VonChomp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
