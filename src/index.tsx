@@ -68,7 +68,8 @@ export default class App extends Component<Props, State> {
           <View style={styles.creditTextRow}>
             <Text style={styles.creditText}>by</Text>
             <TouchableHighlight
-              onPress={() => Linking.openURL("http://www.whatrocks.org")}
+              onPress={() =>
+                Linking.openURL("https://www.charlieharrington.com")}
             >
               <Text style={[styles.creditText, styles.creditTextHighlightRed]}>
                 @whatrocks
