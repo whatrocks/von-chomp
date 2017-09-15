@@ -1,4 +1,4 @@
-package net.whatrocks.vonchomp;
+package org.whatrocks.voncount;
 
 import android.app.Application;
 import android.util.Log;

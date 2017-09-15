@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.whatrocks.vonchomp"
+    package="org.whatrocks.voncount"
     android:versionCode="1"
     android:versionName="1.0">
 

@@ -87,7 +87,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "net.whatrocks.vonchomp"
+        applicationId "org.whatrocks.voncount"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
